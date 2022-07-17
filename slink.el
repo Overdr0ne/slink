@@ -106,7 +106,7 @@
 
 (defun slink-save-file (file label)
   "Save FILE link to LABEL."
-  (interactive (list (read-file-name "File: ")
+  (interactive (list (concat "file:" (read-file-name "File: "))
 		     (read-string "Label: ")))
   (slink-save file label))
 
