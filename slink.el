@@ -89,6 +89,16 @@
   (add-to-list 'slink-y (concat label ":" url))
   (customize-save-variable 'slink-y slink-y))
 
+(defun slink-edit-label ()
+  (interactive)
+  (let* ((slink (substring-no-properties (completing-read "Slink: "
+							  (slink-y-propertized))))
+	 (url (string-join (rest (split-string slink ":")) ":"))
+	 (label (read-string "Label: ")))
+    (setq slink-y (delete slink slink-y))
+    (message "%s %s" url label)
+    (slink-save url label)))
+
 (defun slink-save-at-point (label)
   "Save link at point to LABEL."
   (interactive (list (read-string "Label: ")))
