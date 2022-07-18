@@ -110,7 +110,7 @@
 		     (read-string "Label: ")))
   (slink-save file label))
 
-(defun slink-url-at-point ()
+(defun slink-get-url-at-point ()
   "Copies the URL from an org link at the point"
   (interactive)
   (let ((plain-url (url-get-url-at-point)))
@@ -129,7 +129,7 @@
 (defun slink-save-org-url-at-point ()
   "Save link at point to LABEL."
   (interactive)
-  (let ((url (slink-url-at-point))
+  (let ((url (slink-get-url-at-point))
 	(label (read-string "Label: "
 			    (substring-no-properties (string-join (append (org-get-outline-path)
 									  `(,(symbol-name (symbol-at-point)))) "/")))))
