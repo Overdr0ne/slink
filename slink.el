@@ -20,6 +20,7 @@
 ;;; Code:
 
 (require 'cl-lib)
+(require 'outline)
 
 (defgroup slink nil
   "Slink saves your links."
