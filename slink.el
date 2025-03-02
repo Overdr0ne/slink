@@ -94,7 +94,7 @@
   (interactive)
   (let* ((slink (substring-no-properties (completing-read "Slink: "
 							  (slink-y-propertized))))
-	 (url (string-join (rest (split-string slink ":")) ":"))
+	 (url (string-join (cl-rest (split-string slink ":")) ":"))
 	 (label (read-string "Label: ")))
     (setq slink-y (delete slink slink-y))
     (message "%s %s" url label)
